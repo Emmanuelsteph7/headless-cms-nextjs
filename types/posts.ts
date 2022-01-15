@@ -29,3 +29,15 @@ export interface PostsObjI {
 export interface PostsI {
   node: PostsObjI;
 }
+
+export interface RecentPostsI {
+  title: string;
+  slug: string;
+  featuredImage: FeaturedImage | null;
+  createdAt: string;
+}
+
+export interface CategoriesI {
+  name: string;
+  slug: string;
+}

@@ -1,6 +1,6 @@
 import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import { Post } from "../components";
+import { Categories, Post, PostWidget } from "../components";
 import { getPosts } from "../services";
 import { PostsI, PostsObjI } from "../types/posts";
 
@@ -23,7 +23,10 @@ const Home: NextPage<Props> = ({ posts }) => {
             return <Post node={item.node} key={index} />;
           })}
         </div>
-        <div className="w-4/12 sticky top-0 h-36">Aside</div>
+        <div className="w-4/12 sticky top-8 h-36">
+          <PostWidget />
+          <Categories />
+        </div>
       </div>
     </div>
   );

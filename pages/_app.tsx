@@ -4,10 +4,10 @@ import { Header } from "../components";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
+    <div className="bg-dark-light">
       <Header />
       <Component {...pageProps} />
-    </>
+    </div>
   );
 }
 
