@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { getCategories, getRecentPosts } from "../services";
-import { CategoriesI, RecentPostsI } from "../types/posts";
+import { getCategories, getPostDetails, getRecentPosts } from "../services";
+import { CategoriesI, PostDetailsI, RecentPostsI } from "../types/posts";
 
 export const usePosts = () => {
   const [loading, setLoading] = useState(true);
@@ -8,6 +8,25 @@ export const usePosts = () => {
 
   const handleFetch = () => {
     getRecentPosts()
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      })
+      .catch((e) => {
+        Promise.reject();
+        setLoading(false);
+      });
+  };
+
+  return { loading, data, handleFetch };
+};
+
+export const usePostDetails = () => {
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState<PostDetailsI>();
+
+  const handleFetch = (slug: string) => {
+    getPostDetails(slug)
       .then((data) => {
         setData(data);
         setLoading(false);

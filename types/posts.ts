@@ -16,6 +16,10 @@ interface FeaturedImage {
   url: string;
 }
 
+interface Content {
+  raw: string;
+}
+
 export interface PostsObjI {
   createdAt: string;
   slug: string;
@@ -24,6 +28,10 @@ export interface PostsObjI {
   author: Author;
   featuredImage: FeaturedImage | null;
   categories: Category[];
+}
+
+export interface PostDetailsI extends PostsObjI {
+  content: Content;
 }
 
 export interface PostsI {
